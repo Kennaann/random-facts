@@ -4,17 +4,22 @@ import { fetchRandomFactBy } from '../services/apiService'
 
 type SetRandomFact = (category: string) => Promise<void>;
 
-
 const { category } = defineProps({
     category: {
         type: String,
         required: true
     }
 });
+
+const emit = defineEmits<{
+    (e: 'newFact', val: string): void
+}>()
+
 const fact = ref('');
 
 const setRandomFact: SetRandomFact = async (category: string) => {
-    fact.value = await fetchRandomFactBy(category)
+    fact.value = await fetchRandomFactBy(category);
+    emit('newFact', fact.value);
 };
 
 onMounted(async () => {

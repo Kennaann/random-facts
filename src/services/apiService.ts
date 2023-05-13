@@ -1,5 +1,6 @@
 const baseUrl = 'http://numbersapi.com/random/'
 
+export type Category = 'date' | 'math';
 type FetchRandomFactBy = (category: string) => Promise<string>;
 
 export const fetchRandomFactBy: FetchRandomFactBy = async (type: string) => {
