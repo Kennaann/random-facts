@@ -20,6 +20,7 @@ const props = defineProps(['factsLogs']);
     background-color: #ffff;
     padding: 16px;
     width: 35vw;
+    overflow: auto;
 }
 
 .title {

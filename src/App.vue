@@ -22,7 +22,7 @@ const logNewFact = (fact: string, category: string) => {
     fact: fact
   }
 
-  factsLogs.value.push(factLog);
+  factsLogs.value.unshift(factLog);
 }
 </script>
 
@@ -42,6 +42,7 @@ const logNewFact = (fact: string, category: string) => {
 <style scoped>
 .container {
   display: flex;
+  max-height: 60vh;
 }
 .facts-card-wrapper {
   margin-right: 16px;
