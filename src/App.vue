@@ -3,6 +3,8 @@ import { ref, type Ref } from 'vue';
 import FactsCard from './components/FactsCard.vue';
 import LogsCard from './components/LogsCard.vue';
 import type { Category } from './services/apiService'
+import { capitalizeFirstLetter } from './services/formatterService';
+import { formatDate } from './services/formatterService'
 
 interface FactLog {
   date: string,
@@ -15,8 +17,8 @@ const factsLogs: Ref<FactLog[]> = ref([]);
 
 const logNewFact = (fact: string, category: string) => {
   const factLog: FactLog = {
-    date: new Date().toLocaleString(),
-    type: category + ' Fact',
+    date: formatDate(new Date()),
+    type: capitalizeFirstLetter(category) + ' Fact',
     fact: fact
   }
 

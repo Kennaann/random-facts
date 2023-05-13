@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { fetchRandomFactBy } from '../services/apiService'
+import { capitalizeFirstLetter } from '../services/formatterService'
 
 type SetRandomFact = (category: string) => Promise<void>;
 
@@ -31,11 +32,11 @@ onMounted(async () => {
 <template>
     <div class="card">
         <div class="header">
-            <span class="header-text">A cool <span class="category">{{ category }}</span> Fact</span>
+            <span class="header-text">A cool <span class="category">{{ capitalizeFirstLetter(category) }}</span> Fact</span>
             <span class="refresh-button" @click="setRandomFact(category)">Refresh</span>
         </div>
 
-        {{ fact }}
+        <p class="fact">{{ fact }}</p>
     </div>
 </template>
 
