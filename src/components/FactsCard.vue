@@ -26,7 +26,7 @@ onMounted(async () => {
 <template>
     <div class="card">
         <div class="header">
-            A cool <span class="category">{{ category }}</span> Fact
+            <span class="header-text">A cool <span class="category">{{ category }}</span> Fact</span>
             <span class="refresh-button" @click="setRandomFact(category)">Refresh</span>
         </div>
 
@@ -42,5 +42,20 @@ onMounted(async () => {
     border-radius: 8px;
     width: 35vw;
     min-height: 300px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.refresh-button {
+    padding: 4px 8px;
+    cursor: pointer;
+    background-color: rgb(175, 99, 99);
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
 }
 </style>
